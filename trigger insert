@@ -1,0 +1,2 @@
+create trigger insert_pemasukan after insert on pemasukan for each row insert i
+nto log_pemasukan values ('tambah data',now())
