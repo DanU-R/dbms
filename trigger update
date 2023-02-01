@@ -1,0 +1,19 @@
+CREATE TRIGGER update_atk
+AFTER INSERT ON atk
+FOR EACH ROW
+BEGIN
+    UPDATE atk_inventory SET jumlah = jumlah + NEW.jumlah_masuk
+    WHERE kode_atk = NEW.kode_atk;
+END;
+
+
+
+DELIMITER $$
+CREATE TRIGGER update_atk_quantity
+AFTER INSERT ON pemasukan
+FOR EACH ROW
+BEGIN
+    UPDATE atk SET jumlah = jumlah + NEW.qty
+    WHERE kode = NEW.kode;
+END$$
+DELIMITER ;
