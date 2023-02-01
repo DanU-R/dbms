@@ -1,0 +1,7 @@
+CREATE VIEW atk AS
+SELECT kode_atk, nama, jumlah,
+       CASE
+           WHEN jumlah > 10 THEN 'banyak'
+           ELSE 'limit'
+       END AS keterangan
+FROM atk;
